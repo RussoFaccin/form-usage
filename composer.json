@@ -1,0 +1,9 @@
+{
+  "name": "form-usage",
+  "description": "Utilities to handle form submission",
+  "autoload": {
+    "psr-4": {
+      "FormLib\\": "lib/"
+    }
+  }
+}

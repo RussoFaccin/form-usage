@@ -1,0 +1,23 @@
+.m-formCadastro__formContainer.--stacked {
+    display: flex;
+    flex-direction: column;
+}
+
+.m-formCadastro__field {
+    border: 1px solid #BBB;
+    border-radius: 5px;
+}
+
+.m-formCadastro__fieldMessage {
+    display: none;
+    color: #FF0000;
+}
+
+.m-formCadastro__fieldMessage.--active {
+    display: block;
+}
+
+.m-formCadastro__field:not(:focus).--invalid {
+    box-shadow: none;
+    border: 1px solid #FF0000;
+}
