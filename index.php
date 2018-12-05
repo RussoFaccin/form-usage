@@ -15,7 +15,7 @@
 <body>
     <form action="controller/form-handle.php" class="m-formCadastro -novalidate" method="post">
         <div class="m-formCadastro__formContainer --stacked">
-            <?php FormUtilities::generateFormToken('formCadastro'); ?>
+            <?php FormUtilities::generateFormToken(); ?>
             <div class="m-formCadastro__fieldGroup">
                 <label for="fld_name">Nome:</label>
                 <input type="text" class="m-formCadastro__field" name="fld_name" id="fld_name" pattern="(^[A-Z,a-z][a-zãÃ]+\s{1}[A-Z,a-z]+)([A-Za-zãÃ]\s*)+" required validate title="Preencha seu  Nome completo">

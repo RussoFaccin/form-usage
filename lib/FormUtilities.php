@@ -1,13 +1,12 @@
 <?php
-
 namespace FormLib;
+require_once(__DIR__.'/../config/config.php');
 
 class FormUtilities {
-    static function generateFormToken($formId) {
+    static function generateFormToken() {
         session_start();
-        $token = md5(uniqid(microtime(), true));
-        $_SESSION['form_'.$formId] = $token;
-        echo '<input type="hidden" name="form_name" value="'.$formId.'">';
+        $token = bin2hex(random_bytes(30));
+        $_SESSION['formToken'] = $token;
         echo '<input type="hidden" name="form_token" value="'.$token.'">';
     }
 
@@ -20,11 +19,10 @@ class FormUtilities {
 
         session_start();
         
-        $formName = $_POST['form_name'];
-        $formToken = $_POST['form_token'];
-        $sessionToken = $_SESSION['form_'.$formName];
+        $formToken = isset($_POST['form_token']) ? $_POST['form_token'] : false;
+        $sessionToken = isset($_SESSION['formToken']) ? $_SESSION['formToken'] : false;
         
-        if (!isset($formToken)) {
+        if (!$formToken) {
             $response['status'] = 401;
             $response['message'] = 'Unauthorized';
         } else if ($formToken !== $sessionToken) {
