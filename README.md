@@ -1,5 +1,4 @@
 # Form Utilities
----
 Form Utilities - token security | validation | processing
 ### Installation
 Install using composer `php composer.phar install`
